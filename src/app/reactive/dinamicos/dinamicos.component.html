@@ -1,0 +1,46 @@
+<h2>Templete: <small>Dinamicos</small></h2>
+
+<hr>
+
+<form (submit)="guardar()" [formGroup]="miForulario" >
+    <!-- nombre -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Nombre</label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Nombre de la persona" formControlName="nombre" >
+            <span  *ngIf="validar('nombre')" class="form-text text-danger">este campo es obligatorio</span>
+        </div>
+    </div>
+    <!-- favoritos -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Agregar</label>
+        <div class="col-sm-9">
+           <div class="input-group">
+               <input class="form-control" [formControl]="nuevoFavorito"  (keyup.enter)="agregarFavorito()" type="text">
+               <button class="btn btn-outline-primary" (click)="agregarFavorito()" type="button">Agregar</button>
+           </div>
+        </div>
+    </div>
+    <!-- lista de favoritos -->
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Lista de favoritos</label>
+        <div class="col-sm-9" formArrayName="favoritos">
+
+            <div class="input-group mb-1" *ngFor="let favorito of favoritosArr.controls; let i = index"> 
+                <input type="text" class="form-control" [formControlName]="i"  >
+                <button class="btn btn-outline-danger" (click)="borrar(i)" type="button">eliminar</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class=" row">
+        <div class="col">
+            <button type="submit" class="btn btn-primary float-end" >Guardar</button>
+        </div>
+    </div>
+</form>
+<span>Persona</span>
+<pre>
+    
+</pre>

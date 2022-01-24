@@ -1,0 +1,19 @@
+<h2>Templete</h2>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let items of templeteMenu" [routerLink]="items.ruta" routerLinkActive="active" class="list-group-item">{{items.texto}}</li>
+</ul>
+
+<h2>Reactive</h2>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let items of reactiveMenu" [routerLink]="items.ruta" routerLinkActive="active" class="list-group-item">{{items.texto}}</li>
+</ul>
+
+<h2>Validators</h2>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let items of authMenu" [routerLink]="items.ruta" routerLinkActive="active" class="list-group-item">{{items.texto}}</li>
+</ul>
+
+
